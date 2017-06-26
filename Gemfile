@@ -1,6 +1,8 @@
 source 'https://rubygems.org/'
 
-gem 'rails', '~> 5.0.0'
+ruby '2.3.3'
+gem 'devise'
+gem 'rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
