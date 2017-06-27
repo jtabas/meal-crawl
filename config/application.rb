@@ -24,6 +24,8 @@ module MealCrawl
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    #oauth middleware
+    config.session_store :cookie_store, key: '_interslice_session'
 
     # Don't generate system test files.
     config.generators.system_tests = nil
