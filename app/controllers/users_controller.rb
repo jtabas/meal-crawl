@@ -36,9 +36,8 @@ class UsersController < ApplicationController
         :username,
         :city,
         :state,
-        :admin,
+        :admin
       )
     end
   end
-
 end
