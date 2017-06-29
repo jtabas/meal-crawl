@@ -1,9 +1,9 @@
 source 'https://rubygems.org/'
 
 ruby '2.3.3'
+gem 'devise'
 gem 'dotenv-rails'
 gem 'jquery-rails'
-gem 'devise'
 gem 'rails'
 gem 'sass-rails', '~> 5.0'
 gem 'pg', '~> 0.18'
