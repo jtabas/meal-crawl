@@ -1,13 +1,13 @@
 source 'https://rubygems.org/'
 
 ruby '2.3.3'
-gem 'devise'
 gem 'rails'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
 gem 'dotenv-rails'
 gem 'jquery-rails'
+gem 'sass-rails', '~> 5.0'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.0'
+gem 'devise'
 gem 'rest-client'
 gem 'uglifier', '>= 1.3.0'
 group :development do
