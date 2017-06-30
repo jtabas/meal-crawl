@@ -45,3 +45,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
