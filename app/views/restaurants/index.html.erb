@@ -3,9 +3,9 @@
   <% @restaurants.each do |r| %>
   <ul>
     <li>
-      <%= r.name %>
+      <%= r.name %></br>
       <%= r.address %>
-      <%= r.zipcode %>
+      <!-- <%= r.zipcode.tr(',', '') %> -->
       <%= r.food_type %>
     </li>
   </ul>

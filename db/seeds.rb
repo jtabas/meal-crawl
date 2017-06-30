@@ -8,20 +8,22 @@ key = ENV['GOOGLE_API_KEY']
 response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9524,-75.1636&radius=15000&type=restaurant&key=#{key}",
 {:content_type => :json, :'Authorization' => ENV['GOOGLE_API_KEY'] }
 response = JSON.parse(response)
-
+binding.pry
 response['results'].each do |result|
   places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
   places = JSON.parse(places)
   restaurant = places['result']
+
+  zipcodecomma = restaurant['formatted_address'].match(/\d{5},/)
+  # zipcode = zipcodecomma.tr(',', '')
   hours = nil
   if restaurant['opening_hours']
     hours = restaurant['opening_hours']['weekday_text'].join('\n')
   end
-
   Restaurant.create!(
     name: restaurant['name'],
     address: restaurant['formatted_address'],
-    zipcode: restaurant['formatted_address'],
+    zipcode: zipcodecomma,
     hours: hours,
     website: restaurant['website'],
     phone: restaurant['formatted_phone_number'],
