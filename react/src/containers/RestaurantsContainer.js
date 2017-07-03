@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import SearchBar from '../components/SearchBar';
-// import RestaurantsList from '../components/RestaurantsList';
+import SearchBar from '../components/SearchBar';
+import RestaurantsList from '../components/RestaurantsList';
 
 class RestaurantsContainer extends Component {
   constructor (props) {

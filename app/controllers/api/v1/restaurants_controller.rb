@@ -1,5 +1,5 @@
-class Api::V1::ResturantsController < ApplicationController
+class Api::V1::RestaurantsController < ApplicationController
   def index
-    render json: Resturant.all
+    render json: Restaurant.all
   end
 end

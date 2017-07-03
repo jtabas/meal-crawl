@@ -17,5 +17,13 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :new, :create]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :museums, only: [] do
+        resources :reviews, only: [] do
+          resources :votes, only: [:create]
+        end
+      end
+    end
+  end
 end
