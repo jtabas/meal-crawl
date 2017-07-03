@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     def destroy
       @user = User.find(params[:id])
       @user.destroy
-      redirect_to museums_path
+      redirect_to restaurants_path
     end
 
     private

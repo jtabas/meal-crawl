@@ -4,7 +4,7 @@ const SearchBar = props => {
     <div className="search-bar small-12 columns" >
       <input
         type='text'
-        placeholder="Search for a Museum"
+        placeholder="Search for a Restaurant"
         value={props.value}
         onChange={props.onChange}
       />
