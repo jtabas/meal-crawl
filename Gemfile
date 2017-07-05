@@ -10,6 +10,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rest-client'
 gem 'uglifier', '>= 1.3.0'
+gem 'geocoder'
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
