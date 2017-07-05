@@ -4,6 +4,9 @@ class Api::V1::RestaurantsController < ApplicationController
     render json: Restaurant.all
   end
 
+  def show
+  end
+
   def create
     Restaurant.find_or_create_by(params[:lat, :long])
   end
@@ -13,8 +16,8 @@ class Api::V1::RestaurantsController < ApplicationController
   def make_api_call
     # binding.pry
     data = JSON.parse(RestClient.get "http://freegeoip.net/json/#{request.remote_ip}")
-    # binding.pry
-    lat = data.latitude
-    long = data.longitude
+    binding.pry
+    lat = data["latitude"]
+    long = data["longitude"]
   end
 end
