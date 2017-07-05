@@ -9,7 +9,7 @@ response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysear
 {:content_type => :json, :'Authorization' => ENV['GOOGLE_API_KEY'] }
 response = JSON.parse(response)
 response['results'].each do |result|
-  places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
+   places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
   places = JSON.parse(places)
   restaurant = places['result']
 
