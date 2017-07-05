@@ -39,7 +39,8 @@ class Api::V1::RestaurantsController < ApplicationController
         hours: hours,
         website: restaurant['website'],
         phone: restaurant['formatted_phone_number'],
-        food_type: result['rating']
+        food_type: result['rating'],
+        photo: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       )
     end
   end
