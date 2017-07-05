@@ -13,7 +13,7 @@ class Api::V1::RestaurantsController < ApplicationController
   def make_api_call
     # binding.pry
     data = JSON.parse(RestClient.get "http://freegeoip.net/json/#{request.remote_ip}")
-    binding.pry
+    # binding.pry
     lat = data.latitude
     long = data.longitude
   end
