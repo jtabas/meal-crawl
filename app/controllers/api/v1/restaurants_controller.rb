@@ -23,7 +23,7 @@ class Api::V1::RestaurantsController < ApplicationController
     {:content_type => :json, :'Authorization' => ENV['GOOGLE_API_KEY'] }
     response = JSON.parse(response)
     response['results'].each do |result|
-       places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
+      places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
       places = JSON.parse(places)
       restaurant = places['result']
 
@@ -32,14 +32,13 @@ class Api::V1::RestaurantsController < ApplicationController
       if restaurant['opening_hours']
         hours = restaurant['opening_hours']['weekday_text'].join('\n')
       end
+
       Restaurant.find_or_create_by!(
         name: restaurant['name'],
         address: restaurant['formatted_address'],
         zipcode: zipcode,
-        hours: hours,
+        hours: opening_hours,
         website: restaurant['website'],
-        phone: restaurant['formatted_phone_number'],
-        food_type: result['rating'],
         photo: "https://maps.googleapis.com/maps/api/place/photo?width=300,height=300&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       )
     end

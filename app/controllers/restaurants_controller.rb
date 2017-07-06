@@ -5,6 +5,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    # @hours = @restaurant.hours.split("\\n")
+    @hours = @restaurant.hours.split("\\n")
   end
 end

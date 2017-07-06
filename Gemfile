@@ -1,6 +1,7 @@
 source 'https://rubygems.org/'
 
 ruby '2.3.3'
+gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jquery-rails'
@@ -11,6 +12,7 @@ gem 'puma', '~> 3.0'
 gem 'rest-client'
 gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
+gem 'foundation-rails'
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'

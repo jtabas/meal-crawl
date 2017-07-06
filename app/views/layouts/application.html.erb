@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation.min.css">
+<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
   <head>
-    <title>MealCrawl</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text"><%= link_to "Meal Crawl", restaurants_path %></li>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="menu horizontal" id=top-bar-right>
+          <% if user_signed_in? %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "My Profile", user_path(current_user) %></li>
+            <% else %>
+              <li><%= link_to "Create Account", new_user_registration_path%></li>
+              <li><%= link_to "Sign In", new_user_session_path%></li>
+          <% end %>
+        </ul>
+        </ul>
+      </div>
+    </div>
+
+    <% if notice == "Signed out successfully." %>
+      <p class="notice" style="color:red"><%= notice %></p>
+    <% else %>
+      <p class="notice" style="color:green"><%= notice %></p>
+    <% end %>
+
+    <p class="alert"><%= alert %></p>
     <%= yield %>
-  </body>
+    </body>
+  </style>
 </html>

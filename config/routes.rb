@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  namespace :admin do
+    resources :reviews, only: [:destroy]
+    resources :users, only: [:index, :show]
+  end
+
   resources :restaurants, only: [:index, :show] do
   end
 
