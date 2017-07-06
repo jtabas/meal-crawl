@@ -4,9 +4,6 @@ class Api::V1::RestaurantsController < ApplicationController
     render json: @location.restaurants
   end
 
-  def show
-  end
-
   def create
     Restaurant.find_or_create_by(params[lat, long])
   end
@@ -17,8 +14,9 @@ class Api::V1::RestaurantsController < ApplicationController
     data = JSON.parse(RestClient.get "http://freegeoip.net/json/#{request.remote_ip}")
     lat = data["latitude"]
     long = data["longitude"]
-    @location = Location.find_or_create_by(lat: lat.round, long: long.round) ##needs work
     key = ENV['GOOGLE_API_KEY']
+
+    @location = Location.find_or_create_by(lat: lat, long: long) ##needs work
 
     response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=1800&type=restaurant&keyword=taco&key=#{key}",
     {:content_type => :json, :'Authorization' => ENV['GOOGLE_API_KEY'] }
@@ -27,14 +25,13 @@ class Api::V1::RestaurantsController < ApplicationController
       places = RestClient.get "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{result['place_id']}&key=#{key}"
       places = JSON.parse(places)
       restaurant = places['result']
-
       zipcode = restaurant['formatted_address'].match(/\d{5}/)
       hours = nil
       if restaurant['opening_hours']
         hours = restaurant['opening_hours']['weekday_text'].join('\n')
       end
 
-      restuarant = Restaurant.find_or_create_by!(
+      @restuarant = Restaurant.find_or_create_by!(
         name: restaurant['name'],
         address: restaurant['formatted_address'],
         zipcode: zipcode,
@@ -43,7 +40,7 @@ class Api::V1::RestaurantsController < ApplicationController
         photo: "https://maps.googleapis.com/maps/api/place/photo?width=300,height=300&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       )
 
-      RestaurantLocation.find_or_create_by(location: location, restaurant: restuarant)
+      LocationsRestaurant.find_or_create_by(location: @location, restaurant: @restuarant)
     end
   end
 end
