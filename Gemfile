@@ -7,6 +7,10 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'rails'
 gem 'sass-rails', '~> 5.0'
+gem 'http'
+gem 'json'
+gem 'sendgrid-ruby'
+gem 'rubocop', require: false
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rest-client'
@@ -17,6 +21,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
 
 group :development, :test do

@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
         :city,
         :state,
         :email,
+        :avatar
       ]
     )
   end

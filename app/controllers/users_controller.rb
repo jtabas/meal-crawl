@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
     end
@@ -36,8 +35,8 @@ class UsersController < ApplicationController
         :username,
         :city,
         :state,
-        :admin
+        :admin,
+        :avatar
       )
     end
   end
-end
