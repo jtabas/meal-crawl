@@ -56,7 +56,7 @@ class RestaurantsList extends Component {
           key={index}
           id={restaurant.id}
           name={restaurant.name}
-          // rating={Number((restaurant.rating).toFixed(1))}
+          rating={Number((restaurant.rating).toFixed(1))}
           address={restaurant.address.split(',')[0]}
           photo={restaurant.photo}
         />
