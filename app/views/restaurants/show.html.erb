@@ -46,13 +46,6 @@
 
          <h2>Rating: <%= review.rating %></h2>
          <% if review.body %><p class="review-body"><%= review.body %></p>
-        <h4 class="score" id="score_<%= review.id %>">
-          Score: <%= review.score %>
-        </h4>
-        <div class="button-group" id="score-buttons">
-          <button id="<%= review.id%>" class="button upvote">Upvote</button>
-          <button id="<%= review.id%>" class="button downvote">Downvote</button>
-        </div>
 
        <% end %>
         <br>

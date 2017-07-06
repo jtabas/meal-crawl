@@ -17,9 +17,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
   end
 
-  resources :restaurants, only: [:index, :show] do
-  end
-
   resources :users, except: [:index, :new, :create]
   resources :restaurants, only: [:index, :show] do
     resources :reviews, except: [:index, :show, :new]

@@ -1,7 +1,7 @@
 class Api::V1::RestaurantsController < ApplicationController
   def index
     make_api_call
-    render json: Restaurant.all
+    render json: @location.restaurants
   end
 
   def show
@@ -17,6 +17,7 @@ class Api::V1::RestaurantsController < ApplicationController
     data = JSON.parse(RestClient.get "http://freegeoip.net/json/#{request.remote_ip}")
     lat = data["latitude"]
     long = data["longitude"]
+    @location = Location.find_or_create_by(lat: lat.round, long: long.round) ##needs work
     key = ENV['GOOGLE_API_KEY']
 
     response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=1800&type=restaurant&keyword=taco&key=#{key}",
@@ -33,7 +34,7 @@ class Api::V1::RestaurantsController < ApplicationController
         hours = restaurant['opening_hours']['weekday_text'].join('\n')
       end
 
-      Restaurant.find_or_create_by!(
+      restuarant = Restaurant.find_or_create_by!(
         name: restaurant['name'],
         address: restaurant['formatted_address'],
         zipcode: zipcode,
@@ -41,6 +42,8 @@ class Api::V1::RestaurantsController < ApplicationController
         website: restaurant['website'],
         photo: "https://maps.googleapis.com/maps/api/place/photo?width=300,height=300&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       )
+
+      RestaurantLocation.find_or_create_by(location: location, restaurant: restuarant)
     end
   end
 end

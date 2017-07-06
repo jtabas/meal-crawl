@@ -7,8 +7,13 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
     @review = Review.new
-
-    @rating = if (@restaurant.rating % 1).zero? then @restaurant.rating.to_i else @restaurant.rating.round(1) end
+    if @restaurant.rating
+      if (@restaurant.rating % 1).zero?
+        @rating = @restaurant.rating.to_i
+      else
+        @rating = @restaurant.rating.round(1)
+      end
+    end
     @hours = @restaurant.hours.split("\\n")
   end
 end
