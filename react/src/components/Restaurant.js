@@ -7,7 +7,8 @@ const Restaurant = props => {
           <h2>{props.name}</h2>
         </a>
         <p>Rating: {props.rating} <br />
-        Address: {props.address} </p>
+        Address: {props.address} <br />
+        Website: {props.website} </p>
     </div>
   );
 }

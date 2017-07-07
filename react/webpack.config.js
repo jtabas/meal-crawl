@@ -18,6 +18,10 @@ var config = {
   devtool: 'eval-source-map'
 }
 
+externals: {
+  foundation: 'Foundation'
+}
+
 if (process.env.NODE_ENV === 'production') {
   delete config.devtool;
   var webpack = require('webpack');

@@ -15,3 +15,27 @@
  *= require foundation_and_overrides
 
  */
+ body {
+   background-repeat: no-repeat;
+   background-size: 65%;
+   background-position: center 0;
+   background-color: #0ABFBC;
+   font-size: 20px
+ }
+
+ .top-bar{
+   background-image: url("background.jpg");
+   background: #FC354C;
+ }
+
+ .menu-text{
+   background-color: #FC354C;
+ }
+
+ #top-bar-right{
+   background-color: #FC354C;
+ }
+
+ #app{
+   margin: 15px 15%;
+ }

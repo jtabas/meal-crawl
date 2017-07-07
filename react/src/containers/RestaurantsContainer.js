@@ -61,7 +61,6 @@ class RestaurantsContainer extends Component {
   findRestaurants (searchTerm) {
     let allRestaurants = this.state.allRestaurants;
     let foundRestaurants = [];
-    // console.log(searchTerm);
     allRestaurants.forEach((restaurant) => {
       var restaurantMatch = false;
       if (restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) {

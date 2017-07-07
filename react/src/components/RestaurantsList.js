@@ -50,15 +50,19 @@ class RestaurantsList extends Component {
     }
 
     let newRestaurants = currentRestaurants.map((restaurant, index) => {
-      console.log(restaurant.photo);
+      let rating
+      if(restaurant.rating){
+        rating = Number((restaurant.rating).toFixed(1))
+      }
       return (
         <Restaurant
           key={index}
           id={restaurant.id}
           name={restaurant.name}
-          rating={Number((restaurant.rating).toFixed(1))}
+          rating={rating}
           address={restaurant.address.split(',')[0]}
           photo={restaurant.photo}
+          website={restaurant.website}
         />
       );
     });
