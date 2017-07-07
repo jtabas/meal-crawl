@@ -19,21 +19,21 @@
    background-repeat: no-repeat;
    background-size: 65%;
    background-position: center 0;
-   background-color: #0ABFBC;
+   background-color: #3232aa;
    font-size: 20px
  }
 
  .top-bar{
    background-image: url("background.jpg");
-   background: #FC354C;
+   background: #F63440;
  }
 
  .menu-text{
-   background-color: #FC354C;
+   background-color: #F63440;
  }
 
  #top-bar-right{
-   background-color: #FC354C;
+   background-color: #F63440;
  }
 
  #app{
