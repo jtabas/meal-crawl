@@ -12,8 +12,8 @@ class Api::V1::RestaurantsController < ApplicationController
 
   def make_api_call
     data = JSON.parse(RestClient.get "http://freegeoip.net/json/#{request.remote_ip}")
-    lat = 39.99267
-    long = -75.1415
+    lat = data["latitude"]
+    long = data["longitude"]
     key = ENV['GOOGLE_API_KEY']
 
     @location = Location.find_or_create_by(lat: lat, long: long)
