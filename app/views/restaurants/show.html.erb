@@ -15,9 +15,9 @@
         <li><%= hour %></li>
     <% end %>
   </ul>
-    <%= @restaurant.address %><br>
-    <%= @restaurant.phone %><br>
-    <%= link_to @restaurant.website, @restaurant.website %><br>
+    <h4>Address:</h4><%= @restaurant.address %><br>
+    <h4>Phone Number:</h4><%= @restaurant.phone %><br>
+    <h4>Website:</h4><%= link_to @restaurant.website, @restaurant.website %><br>
   </div>
 
   <div class="small-12 large-6 columns" id="review-form">

@@ -33,7 +33,7 @@ class Api::V1::RestaurantsController < ApplicationController
         hours = restaurant['opening_hours']['weekday_text'].join('\n')
       end
       if restaurant['photos']
-        photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300,maxheight=300&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
+        photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       end
       @restaurant = Restaurant.find_or_create_by(
         name: restaurant["name"],

@@ -6,9 +6,6 @@ const Restaurant = props => {
         <a href={`/restaurants/${props.id}`}>
           <h2>{props.name}</h2>
         </a>
-        <p>Rating: {props.rating} <br />
-        Address: {props.address} <br />
-        Website: {props.website} </p>
     </div>
   );
 }
