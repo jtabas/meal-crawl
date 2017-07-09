@@ -5,7 +5,7 @@ class Api::V1::RestaurantsController < ApplicationController
   end
 
   def create
-    Restaurant.find_or_create_by(params[lat, long])
+    Restaurant.find_or_create_by(params[lat: lat, long: long])
   end
 
   private
