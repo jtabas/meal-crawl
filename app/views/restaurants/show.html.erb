@@ -1,5 +1,5 @@
 <a href=<%= @restaurant.website %> id="show-header">
-  <h1><%= @restaurant.name %></h1>
+  <h2><%= @restaurant.name %></h2>
 </a>
 <div id="show-img-container">
   <% unless @restaurant.photo.nil? %>
@@ -9,22 +9,22 @@
 
 <div class="row">
   <div class="small-12 large-6 columns" id="restaurant-information">
-    <h4>Hours:</h4>
+    <h5>Hours:</h5>
   <ul class ="no-bullet">
     <% @hours.each do |hour| %>
         <li><%= hour %></li>
     <% end %>
   </ul>
-    <h4>Address:</h4><%= @restaurant.address %><br>
-    <h4>Phone Number:</h4><%= @restaurant.phone %><br>
-    <h4>Website:</h4><%= link_to @restaurant.website, @restaurant.website %><br>
+    <h5>Address:</h5><%= @restaurant.address %><br>
+    <h5>Phone Number:</h5><%= @restaurant.phone %><br>
+    <h5>Website:</h5><%= link_to @restaurant.website, @restaurant.website %><br>
   </div>
 
   <div class="small-12 large-6 columns" id="review-form">
     <% if user_signed_in? %>
       <%= render "reviews/review_form" %>
     <% else %>
-      <h4> Please sign in or create and account to leave your review. </h4>
+      <h5> Please sign in or create and account to leave your review. </h5>
     <% end %>
   </div>
 
@@ -32,7 +32,7 @@
 
 <div class="row">
 
-<h2>Reviews</h2>
+<h5>Reviews</h5>
    <% if @reviews %>
        <% @reviews.each do |review| %>
        <div class="small-8 small-centered" id="review">
@@ -44,7 +44,7 @@
 
         </div>
 
-         <h2>Rating: <%= review.rating %></h2>
+         <h5>Rating: <%= review.rating %></h5>
          <% if review.body %><p class="review-body"><%= review.body %></p>
 
        <% end %>
