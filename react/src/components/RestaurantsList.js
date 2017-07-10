@@ -77,8 +77,12 @@ class RestaurantsList extends Component {
 
     return (
       <div>
+        <div className="row">
         {newRestaurants}
+        </div>
+        <div className="row">
         {buttons}
+        </div>
       </div>
     );
   }

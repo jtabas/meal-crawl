@@ -80,15 +80,23 @@ class RestaurantsContainer extends Component {
     }
 
     return (
-      <div className="large-12 large-centered columns" id="Restaurants-Container">
-        <SearchBar
-          onChange={this.onChange}
-          handleClear={this.handleClear}
-          value={this.state.searchTerm}
-        />
-        <RestaurantsList
-          restaurants={restaurantsToShow}
-        />
+      <div>
+        <div className="row large-12 large-centered columns" id="Restaurants-Container">
+          <SearchBar
+            onChange={this.onChange}
+            handleClear={this.handleClear}
+            value={this.state.searchTerm}
+          />
+          <RestaurantsList
+            restaurants={restaurantsToShow}
+          />
+        </div>
+        <footer>
+          <div className="row">
+            <a className="large-6 columns text-left" href="https://github.com/jtabas">Github</a>
+            <a className="large-6 columns text-right" href="https://www.linkedin.com/in/jtabas/">LinkedIn</a>
+          </div>
+        </footer>
       </div>
     );
   }
