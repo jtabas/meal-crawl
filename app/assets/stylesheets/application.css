@@ -23,9 +23,26 @@
    font-size: 20px
  }
 
+ .restaurant-photo-photo-show {
+   width: 300px;
+   height: 300px;
+   margin: auto
+ }
+
+ #show-img-container {
+   padding: 15px 0px;
+ }
+
+ #Restaurant-Container {
+   text-align: left;
+ }
+
  .top-bar{
-   background-image: url("background.jpg");
    background: #F63440;
+ }
+
+ .notice{
+   margin: 0 20px;
  }
 
  .menu-text{
@@ -36,6 +53,43 @@
    background-color: #F63440;
  }
 
+ #login{
+   text-align: center;
+   width: 45%;
+ }
+
+ #registration{
+   text-align: center;
+   width: 45%;
+ }
+
+ .row{
+  text-align: center;
+}
+
+ #review {
+  border: 3px solid #173D45;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
  #app{
    margin: 15px 15%;
  }
+
+
+#profile_links {
+  padding-left: 25px;
+}
+
+#user-information {
+  margin-bottom: 20px;
+}
+
+.review-avatar {
+  padding: 10px;
+}
+
+.restaurant-photo {
+  padding: 13px;
+}
