@@ -4,3 +4,9 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+desc 'Update Foundation for Sites assets'
+   task update: :clean do
+    sh 'bower install'
+    sh 'cp -R bower_components/foundation-sites/dist/js/plugins/* vendor/assets/js/'
+end
