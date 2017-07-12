@@ -18,9 +18,7 @@ class Api::V1::RestaurantsController < ApplicationController
     key = ENV['GOOGLE_API_KEY']
 
     @location = Location.find_or_create_by(lat: lat, long: long)
-
-
-    response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=1800&type=restaurant&keyword=taco&key=#{key}",
+    response = RestClient.get "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=1800&type=restaurant&keyword=sushi&key=#{key}",
     {:content_type => :json, :'Authorization' => ENV['GOOGLE_API_KEY'] }
     response = JSON.parse(response)
     response['results'].each do |result|
@@ -36,17 +34,20 @@ class Api::V1::RestaurantsController < ApplicationController
       if restaurant['photos']
         photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
       end
-      @restaurant = Restaurant.find_or_create_by(
-        name: restaurant["name"],
-        address: restaurant["formatted_address"],
-        zipcode: zipcode,
-        food_type: restaurant["name"],
-        hours: hours,
-        website: restaurant['website'],
-        photo: photo,
-        rating: result['rating'],
-        phone: restaurant["formatted_phone_number"]
-      )
+      @restaurant = Restaurant.find_by(name: restaurant["name"], address: restaurant["formatted_address"])
+        unless @restaurant
+          @restaurant = Restaurant.create(
+            name: restaurant["name"],
+            address: restaurant["formatted_address"],
+            zipcode: zipcode,
+            food_type: restaurant["name"],
+            hours: hours,
+            website: restaurant['website'],
+            photo: photo,
+            rating: result['rating'],
+            phone: restaurant["formatted_phone_number"]
+          )
+      end
       LocationsRestaurant.find_or_create_by(location: @location, restaurant: @restaurant)
     end
   end
