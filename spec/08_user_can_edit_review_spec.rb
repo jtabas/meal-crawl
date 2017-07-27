@@ -7,7 +7,7 @@ xfeature 'User can edit a review' do
 
   scenario 'User can get to the edit feature' do
     sign_in_as(user)
-    visit museum_path(restaurant)
+    visit restaurant_path(restaurant)
     click_link('Edit This Review', match: :first)
 
     expect(page).to have_field('Rating', with: 3)
