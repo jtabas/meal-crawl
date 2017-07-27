@@ -13,7 +13,7 @@ feature 'user signs up' do
     fill_in 'City', with: 'Philadelphia'
     fill_in 'State', with: 'Pennsylvania'
     click_button 'Create Account'
-    expect(page).to have_content('Account succesfully created')
+    expect(page).to have_content('You have signed up successfully.')
     expect(page).to have_content('Sign Out')
   end
 
