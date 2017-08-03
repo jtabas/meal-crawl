@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-xfeature 'Admin access admin functions' do
+feature 'Admin access admin functions' do
   let!(:admin) { FactoryGirl.create(:user, admin: true) }
   let!(:user1) { FactoryGirl.create(:user, email: 'mugmug@phone.table') }
   let!(:user2) { FactoryGirl.create(:user, email: 'this_is@my.email') }
   let!(:user3) { FactoryGirl.create(:user, email: 'email.email@email.email') }
 
-  scenario 'Admin sees users link' do
-    sign_in_as(admin)
-    visit user_path(admin)
-    expect(page).to have_content 'Admin Features'
-    expect(page).to have_link 'See All Users'
-  end
+  # scenario 'Admin sees users link' do
+  #   sign_in_as(admin)
+  #   visit user_path(admin)
+  #   expect(page).to have_content 'Admin Features'
+  #   expect(page).to have_link 'See All Users'
+  # end
 
   scenario 'Admin visits users link' do
     sign_in_as(admin)

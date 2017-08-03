@@ -22,8 +22,6 @@ xfeature 'Restaurant\'s Reviews Create' do
     fill_in 'Your Review', with: ''
     click_button 'Create Review'
 
-    expect(page).to have_content('Rating can\'t be blank')
-    expect(page).to have_content('Rating is not a number')
-    expect(page).to have_content('Rating is not a valid numeric rating (Must be between 1-5)')
+    expect(page).to have_content('Rating can\'t be blank, Rating is not a number, and Rating is not a valid numeric rating (Must be between 1-5)')
   end
 end
