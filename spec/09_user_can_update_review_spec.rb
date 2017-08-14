@@ -1,5 +1,5 @@
 require 'rails_helper'
-xfeature 'User can edit their own review' do
+feature 'User can edit their own review' do
   let!(:restaurant) { FactoryGirl.create(:restaurant, name: "The Curtain Rises") }
   let!(:review) { FactoryGirl.create(:review, restaurant: restaurant) }
   let!(:review2) { FactoryGirl.create(:review, restaurant: restaurant) }
