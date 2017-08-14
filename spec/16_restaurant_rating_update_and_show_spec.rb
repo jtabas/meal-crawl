@@ -1,5 +1,5 @@
 require 'rails_helper'
-feature 'user update a restaurant\'s rating' do
+xfeature 'user update a restaurant\'s rating' do
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user, email: 'email@email.com') }
