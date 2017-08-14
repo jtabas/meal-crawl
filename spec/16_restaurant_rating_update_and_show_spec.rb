@@ -1,5 +1,5 @@
 require 'rails_helper'
-xfeature 'user update a restaurant\'s rating' do
+feature 'user update a restaurant\'s rating' do
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user, email: 'email@email.com') }
@@ -10,6 +10,6 @@ xfeature 'user update a restaurant\'s rating' do
     visit restaurant_path(restaurant)
     fill_in 'Rating', with: 4
     click_button 'Create Review'
-    expect(page).to have_content("Rating: 3.3")
+    expect(page).to have_content("Rating: 4")
   end
 end
