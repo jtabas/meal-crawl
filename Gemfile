@@ -14,8 +14,8 @@ gem 'rubocop', require: false
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rest-client'
-gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 6.3.1'
+gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
 gem 'react-rails'
 group :development do
