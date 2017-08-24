@@ -47,7 +47,7 @@ class Api::V1::RestaurantsController < ApplicationController
             rating: result['rating'],
             phone: restaurant["formatted_phone_number"]
           )
-      end
+        end
       LocationsRestaurant.find_or_create_by(location: @location, restaurant: @restaurant)
     end
   end

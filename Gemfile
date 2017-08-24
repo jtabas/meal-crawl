@@ -14,10 +14,10 @@ gem 'rubocop', require: false
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rest-client'
-gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 6.3.1'
 gem 'geocoder'
 gem 'react-rails'
+gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
