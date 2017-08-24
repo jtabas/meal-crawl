@@ -12,30 +12,127 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
+ /*= require foundation
 
  */
  body {
    background-repeat: no-repeat;
    background-size: 65%;
    background-position: center 0;
-   background-color: #3232AA;
-   font-size: 20px
+   background-color: white;
+   font-size: 20px;
  }
 
- .top-bar{
-   background-image: url("background.jpg");
-   background: #F63440;
+body, .button {
+  font-family: 'ABeeZee', sans-serif;
+}
+
+ h1, h2, h3, h4, h5, h6 {
+   font-family: 'Crete Round', serif;
  }
 
- .menu-text{
-   background-color: #F63440;
+a{
+  color: white;
+}
+
+footer, .top-bar, .top-bar ul{
+  background-color: #F63440;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0 30px;
+}
+
+a:hover{
+  color: black;
+}
+
+.restaurant-info-box {
+  background-color: #3232AA;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.restaurant-info-box .image-wrap {
+  max-height: 200px;
+  overflow: hidden;
+}
+ .restaurant-photo-photo-show {
+   width: 400px;
+   height: 400px;
+   margin: auto
  }
 
- #top-bar-right{
-   background-color: #F63440;
+ #show-img-container {
+   padding: 15px 0px;
  }
 
- #app{
-   margin: 15px 15%;
+ .show-page, .show-page a{
+   color: #3232AA;
  }
+
+ #Restaurant-Container {
+   text-align: left;
+ }
+
+ .notice{
+   margin: 0 20px;
+ }
+
+ #login{
+   text-align: center;
+   width: 45%;
+ }
+
+ #registration{
+   text-align: center;
+   width: 45%;
+ }
+
+ .row{
+  text-align: center;
+}
+
+ #review {
+  border: 3px solid #173D45;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#profile_links {
+  padding-left: 25px;
+}
+
+#user-information {
+  margin-bottom: 20px;
+}
+
+.review-avatar {
+  padding: 10px;
+}
+
+.fixed-bottom {
+  padding: 10px;
+}
+
+.restaurant-photo {
+  padding: 13px;
+}
+
+.search-bar {
+  top: 21px;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+
+}
+
+.pages {
+  margin-top: 20px;
+}
+.alert {
+  color: black;
+}

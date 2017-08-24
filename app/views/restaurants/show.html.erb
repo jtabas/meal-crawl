@@ -1,63 +1,65 @@
-<a href=<%= @restaurant.website %> id="show-header">
-  <h1><%= @restaurant.name %></h1>
-</a>
-<div id="show-img-container">
-  <% unless @restaurant.photo.nil? %>
-    <%= image_tag(@restaurant.photo, class: "restaurant-photo-show") %>
-    <% end %>
-</div>
-
-<div class="row">
-  <div class="small-12 large-6 columns" id="restaurant-information">
-    <h4>Hours:</h4>
-  <ul class ="no-bullet">
-    <% @hours.each do |hour| %>
-        <li><%= hour %></li>
-    <% end %>
-  </ul>
-    <%= @restaurant.address %><br>
-    <%= @restaurant.phone %><br>
-    <%= link_to @restaurant.website, @restaurant.website %><br>
+<div class="show-page">
+  <a href=<%= @restaurant.website %> id="show-header">
+    <h2><%= @restaurant.name %></h2>
+  </a>
+  <div id="show-img-container">
+    <% unless @restaurant.photo.nil? %>
+      <%= image_tag(@restaurant.photo, class: "restaurant-photo-show") %>
+      <% end %>
   </div>
 
-  <div class="small-12 large-6 columns" id="review-form">
-    <% if user_signed_in? %>
-      <%= render "reviews/review_form" %>
-    <% else %>
-      <h4> Please sign in or create and account to leave your review. </h4>
-    <% end %>
+  <div class="row">
+    <div class="small-12 large-6 columns" id="restaurant-information">
+      <h5>Hours:</h5>
+    <ul class ="no-bullet">
+      <% @hours.each do |hour| %>
+          <li><%= hour %></li>
+      <% end %>
+    </ul>
+      <h5>Address:</h5><%= @restaurant.address %><br>
+      <h5>Phone Number:</h5><%= @restaurant.phone %><br>
+      <h5>Website:</h5><%= link_to @restaurant.website, @restaurant.website %><br>
+    </div>
+
+    <div class="small-12 large-6 columns" id="review-form">
+      <% if user_signed_in? %>
+        <%= render "reviews/review_form" %>
+      <% else %>
+        <h5> Please sign in or create and account to leave your review. </h5>
+      <% end %>
+    </div>
+
   </div>
 
-</div>
+  <div class="row">
 
-<div class="row">
+  <h5>Reviews</h5>
+     <% if @reviews %>
+         <% @reviews.each do |review| %>
+         <div class="small-8 small-centered" id="review">
+           <div class="review-avatar">
+             <% unless review.user.avatar.url.nil? then %>
+              <%= image_tag review.user.avatar.url %>
+             <% end %>
+            <%= review.user.username %>'s thoughts:
 
-<h2>Reviews</h2>
-   <% if @reviews %>
-       <% @reviews.each do |review| %>
-       <div class="small-8 small-centered" id="review">
-         <div class="review-avatar">
-           <% unless review.user.avatar.url.nil? then %>
-            <%= image_tag review.user.avatar.url %>
+          </div>
+
+           <h5>Rating: <%= review.rating %></h5>
+           <% if review.body %><p class="review-body"><%= review.body %></p>
+
+         <% end %>
+          <br>
+           <% if user_signed_in? && review.user == current_user%>
+             <%= link_to 'Edit Review', edit_restaurant_review_path(review.restaurant, review) %>
+             <%= link_to 'Delete Review', restaurant_review_path(review.restaurant, review), method: :delete %>
            <% end %>
-          <%= review.user.username %>'s thoughts:
 
-        </div>
-
-         <h2>Rating: <%= review.rating %></h2>
-         <% if review.body %><p class="review-body"><%= review.body %></p>
-
+           <% if user_signed_in? && current_user.admin %>
+            <%= link_to 'Delete as Admin', admin_review_path(review), method: :delete %>
+           <% end %>
+         </div>
        <% end %>
-        <br>
-         <% if user_signed_in? && review.user == current_user%>
-           <%= link_to 'Edit Review', edit_restaurant_review_path(review.restaurant, review) %>
-           <%= link_to 'Delete Review', restaurant_review_path(review.restaurant, review), method: :delete %>
-         <% end %>
-
-         <% if user_signed_in? && current_user.admin %>
-          <%= link_to 'Delete as Admin', admin_review_path(review), method: :delete %>
-         <% end %>
-       </div>
      <% end %>
-   <% end %>
+   </div>
  </div>

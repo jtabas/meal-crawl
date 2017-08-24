@@ -30,3 +30,5 @@ response['results'].each do |result|
     photo: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{restaurant["photos"].first["photo_reference"]}&key=#{ENV['GOOGLE_API_KEY']}"
   )
 end
+
+user = User.create(first_name: 'David', last_name: 'MacMurtrie', email: 'dave.m@gmail.com', password: 'launch', state: 'Pennsylvania', city: 'Philadelphia', username: 'davedave', admin: true)
