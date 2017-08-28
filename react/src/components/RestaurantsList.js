@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Restaurant from './Restaurant';
 import PaginationButtons from './PaginationButtons';
 
-
 class RestaurantsList extends Component {
   constructor (props) {
     super(props);

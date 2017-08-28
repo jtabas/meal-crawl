@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
 import RestaurantsList from '../components/RestaurantsList';
+import CrawlForm from '../components/CrawlForm';
 
 class RestaurantsContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
       searchTerm: '',
+      cuisineSearch: '',
+      numberOfStops: null,
       allRestaurants: []
     };
 
@@ -14,6 +17,7 @@ class RestaurantsContainer extends Component {
     this.getData = this.getData.bind(this);
     this.onChange = this.onChange.bind(this);
     this.findRestaurants = this.findRestaurants.bind(this);
+    this.cuisineChange= this.cuisineChange.bind(this);
   }
 
   compare (a, b) {
@@ -71,6 +75,11 @@ class RestaurantsContainer extends Component {
     return foundRestaurants;
   }
 
+  cuisineChange (event) {
+    let newCuisine = event.target.value;
+    this.setState({ cuisineSearch: newCuisine });
+  }
+
   render () {
     var restaurantsToShow = [];
     if (this.state.searchTerm === '') {
@@ -89,6 +98,10 @@ class RestaurantsContainer extends Component {
           />
           <RestaurantsList
             restaurants={restaurantsToShow}
+          />
+          <CrawlForm
+            cuisineChange={this.cuisineChange}
+            cuisineSearch={this.state.cuisineType}
           />
         </div>
         <footer>
