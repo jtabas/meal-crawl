@@ -6,6 +6,7 @@ const CrawlForm = props => {
         type="text"
         placeholder="Cuisine"
         cuisineChange={props.cuisineChange}
+        cuisineSearch={props.cuisineSearch}
         />
 
         <select>
