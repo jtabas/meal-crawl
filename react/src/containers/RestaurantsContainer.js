@@ -9,7 +9,7 @@ class RestaurantsContainer extends Component {
     this.state = {
       searchTerm: '',
       cuisineSearch: '',
-      numberOfStops: null,
+      numberOfStops: ,
       allRestaurants: []
     };
 
