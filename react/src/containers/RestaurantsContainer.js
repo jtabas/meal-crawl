@@ -101,7 +101,7 @@ class RestaurantsContainer extends Component {
           />
           <CrawlForm
             cuisineChange={this.cuisineChange}
-            cuisineSearch={this.state.cuisineType}
+            cuisineSearch={this.state.cuisineSearch}
           />
         </div>
         <footer>
