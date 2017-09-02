@@ -87,6 +87,9 @@ class RestaurantsContainer extends Component {
     } else {
       restaurantsToShow = this.findRestaurants(this.state.searchTerm);
     }
+    {
+      var cuisineSearch = this.state.cuisineSearch
+    }
 
     return (
       <div>

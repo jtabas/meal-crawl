@@ -9,7 +9,6 @@ class Api::V1::RestaurantsController < ApplicationController
     Restaurant.find_or_create_by(params[lat: lat, long: long])
   end
 
-
   private
 
   def make_api_call
