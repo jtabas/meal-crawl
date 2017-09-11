@@ -71,6 +71,11 @@ a:hover{
    margin: auto;
  }
 
+ #show-header {
+   padding: 15px 0px;
+   margin: auto;
+ }
+
  .show-page, .show-page a{
    color: #3232AA;
  }
