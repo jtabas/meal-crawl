@@ -1,6 +1,6 @@
 source 'https://rubygems.org/'
 
-ruby '2.3.3'
+ruby '2.4.5'
 gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
@@ -11,17 +11,18 @@ gem 'http'
 gem 'json'
 gem 'sendgrid-ruby'
 gem 'rubocop', require: false
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'pg'
+gem 'puma'
 gem 'rest-client'
-gem 'foundation-rails', '~> 6.3.1'
+gem 'foundation-rails'
 gem 'geocoder'
 gem 'react-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
+gem 'bundler'
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   gem 'web-console'
 end
 
@@ -31,7 +32,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy', require: false
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'coveralls', require: false
